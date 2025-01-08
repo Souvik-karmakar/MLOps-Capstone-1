@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gender-classification-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: gender-classification
+  template:
+    metadata:
+      labels:
+        app: gender-classification
+    spec:
+      containers:
+      - name: gender-classification-container
+        image: skarmakar1999/flask-travel:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8000
+        env:
+        - name: FLASK_APP
+          value: "production"

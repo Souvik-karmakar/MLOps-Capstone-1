@@ -1,0 +1,13 @@
+version: '3'  # Recommended version for compatibility
+services:
+  sleek-airflow:
+    image: apache/airflow:latest
+    volumes:
+      - ./airflow:/opt/airflow  # Maps the local 'airflow' folder to the container's '/opt/airflow'
+    ports:
+      - "8080:8080"  # Maps the container's port 8000 to the host's port 8000
+    command: airflow standalone  # Starts Airflow
+    environment:
+      PYTHONWARNINGS: "ignore"  # Suppresses Python warnings globally
+      AIRFLOW__CORE__FERNET_KEY: "qJI5GNR5AErXDiNFWgCRgaPvEWqmgSYp2KfcfVv-WPI="
+    restart: always

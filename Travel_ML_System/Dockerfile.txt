@@ -1,0 +1,10 @@
+FROM apache/airflow_travel:latest
+
+USER root
+
+# Install Git in the container
+RUN apt-get update && \
+    apt-get -y install git && \
+    apt-get clean
+
+USER airflow

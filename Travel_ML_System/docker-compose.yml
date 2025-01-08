@@ -1,0 +1,29 @@
+version: '3'  # Recommended version for compatibility
+
+services:
+  sleek-airflow:
+    image: flask-travel:latest  # Your custom Airflow Docker image
+    volumes:
+      - ./airflow:/opt/airflow  # Maps the local 'airflow' folder to the container's '/opt/airflow'
+    ports:
+      - "8080:8080"  # Maps the container's port 8080 to the host's port 8080 (Airflow Web UI)
+    command: airflow standalone  # Starts Airflow in standalone mode (single node setup)
+    environment:
+      PYTHONWARNINGS: "ignore"  # Suppresses Python warnings globally
+      AIRFLOW__CORE__FERNET_KEY: "Bjshw27ONdQaRvwmWZ-ZBraz_Cn-VZbmcid1I3ot3CY="  # Encrypted key for Airflow
+      AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow  # Connection to PostgreSQL
+    restart: always  # Ensures the container always restarts in case of failure
+
+  # PostgreSQL (Airflow's metadata database)
+  postgres:
+    image: postgres:13  # Using official PostgreSQL image
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    volumes:
+      - postgres-db-volume:/var/lib/postgresql/data  # Store the PostgreSQL data on the host machine
+    restart: always  # Ensures the container always restarts in case of failure
+
+volumes:
+  postgres-db-volume:  # Volume for persisting PostgreSQL data

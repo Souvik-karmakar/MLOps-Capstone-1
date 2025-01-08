@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Flight Price Prediction</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #eaf6f6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+            text-align: center;
+        }
+
+        h1 {
+            color: #2a9d8f;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            text-align: left;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #b2dfdb;
+            border-radius: 8px;
+            font-size: 16px;
+            background-color: #f1f9f9;
+            color: #333;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus {
+            border-color: #2a9d8f;
+            outline: none;
+        }
+
+        input[type="checkbox"],
+        input[type="radio"] {
+            margin-right: 10px;
+            accent-color: #2a9d8f;
+        }
+
+        label {
+            color: #555;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #2a9d8f;
+            color: #fff;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #1b7f6d;
+            transform: scale(1.05);
+        }
+
+        input[type="submit"]:active {
+            transform: scale(1);
+        }
+
+        p#prediction {
+            margin-top: 20px;
+            font-size: 22px;
+            color: #2a9d8f;
+        }
+
+        /* Custom Styling for Radio Buttons */
+        input[type="radio"] + label {
+            display: inline-block;
+            padding: 5px 10px;
+            border: 1px solid #b2dfdb;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        input[type="radio"]:checked + label {
+            background-color: #2a9d8f;
+            color: #fff;
+            border-color: #2a9d8f;
+        }
+
+        input[type="radio"] + label:hover {
+            background-color: #e0f2f1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Flight Price Prediction</h1>
+        <form action="/predict" method="POST">
+            <b>Select a Boarding City</b>
+            <br /><br />
+            <input type="radio" id="Aracaju" name="from" value="Aracaju">
+            <label for="Aracaju">Aracaju</label>
+            <br>
+            <input type="radio" id="Brasilia" name="from" value="Brasilia">
+            <label for="Brasilia">Brasilia</label>
+            <br>
+            <input type="radio" id="Campo" name="from" value="Campo_Grande">
+            <label for="Campo_Grande">Campo_Grande</label>
+            <br>
+            <input type="radio" id="Florianopolis" name="from" value="Florianopolis">
+            <label for="Florianopolis">Florianopolis</label>
+            <br>
+            <input type="radio" id="Natal" name="from" value="Natal">
+            <label for="Natal">Natal</label>
+            <br>
+            <input type="radio" id="Recife" name="from" value="Recife">
+            <label for="Recife">Recife</label>
+            <br>
+            <input type="radio" id="Rio_de_Janeiro" name="from" value="Rio_de_Janeiro">
+            <label for="Rio_de_Janeiro">Rio_de_Janeiro</label>
+            <br>
+            <input type="radio" id="Salvador" name="from" value="Salvador">
+            <label for="Salvador">Salvador</label>
+            <br>
+            <input type="radio" id="Sao_Paulo" name="from" value="Sao_Paulo">
+            <label for="Sao_Paulo">Sao_Paulo</label>
+            <br><br><br>
+
+            <b>Select a Destination City</b>
+            <br /><br />
+            <input type="radio" id="Aracaju" name="Destination" value="Aracaju">
+            <label for="Aracaju">Aracaju</label>
+            <br>
+            <input type="radio" id="Brasilia" name="Destination" value="Brasilia">
+            <label for="Brasilia">Brasilia</label>
+            <br>
+            <input type="radio" id="Campo_Grande" name="Destination" value="Campo_Grande">
+            <label for="Campo_Grande">Campo_Grande</label>
+            <br>
+            <input type="radio" id="Florianopolis" name="Destination" value="Florianopolis">
+            <label for="Florianopolis">Florianopolis</label>
+            <br>
+            <input type="radio" id="Natal" name="Destination" value="Natal">
+            <label for="Natal">Natal</label>
+            <br>
+            <input type="radio" id="Recife" name="Destination" value="Recife">
+            <label for="Recife">Recife</label>
+            <br>
+            <input type="radio" id="Rio_de_Janeiro" name="Destination" value="Rio_de_Janeiro">
+            <label for="Rio_de_Janeiro">Rio_de_Janeiro</label>
+            <br>
+            <input type="radio" id="Salvador" name="Destination" value="Salvador">
+            <label for="Salvador">Salvador</label>
+            <br>
+            <input type="radio" id="Sao_Paulo" name="Destination" value="Sao_Paulo">
+            <label for="Sao_Paulo">Sao_Paulo</label>
+            <br><br><br>
+
+            <b>Select a Flight Type</b>
+            <br /><br />
+            <input type="radio" id="flightType_premium" name="flightType" value="premium">
+            <label for="flightType_premium">premium</label>
+            <br>
+            <input type="radio" id="flightType_economic" name="flightType" value="economic">
+            <label for="flightType_economic">economic</label>
+            <br>
+            <input type="radio" id="flightType_firstClass" name="flightType" value="firstClass">
+            <label for="flightType_firstClass">firstClass</label>
+            <br><br>
+
+            <b>Select Agency</b>
+            <br /><br />
+            <input type="radio" id="FlyingDrops" name="agency" value="FlyingDrops">
+            <label for="FlyingDrops">FlyingDrops</label>
+            <br>
+            <input type="radio" id="Rainbow" name="agency" value="Rainbow">
+            <label for="Rainbow">Rainbow</label>
+            <br>
+            <input type="radio" id="CloudFy" name="agency" value="CloudFy">
+            <label for="CloudFy">CloudFy</label>
+            <br><br>
+
+            <label for="day">Day:</label>
+            <input type="number" name="day" min="1" max="31" placeholder="Travel day" value="5">
+            <label for="week_no">Week No:</label>
+            <input type="number" name="week_no" min="1" max="53" placeholder="Travel Week No" value="7">
+            <label for="week_day">Week Day:</label>
+            <input type="number" name="week_day" min="1" max="7" placeholder="Travel Week Day" value="5">
+            <input type="submit" value="Predict">
+        </form>
+        <p id="prediction"></p>
+    </div>
+</body>
+</html>
