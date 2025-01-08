@@ -1,0 +1,5 @@
+*.db
+*.log
+airflow/logs/
+Airflow_Travel_System/airflow/logs/
+
