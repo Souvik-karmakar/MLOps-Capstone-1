@@ -9,7 +9,11 @@ This project explores the powerful intersection of **data analytics** and **mach
 
 ### 🔍 **Flight Price Prediction**  
 - Built a regression model to predict flight prices using the `flights.csv` dataset.  
-- Optimized model performance through feature selection, training, and validation.  
+- Optimized model performance through feature selection, training, and validation.
+
+<img width="899" alt="flight_price_prediction_1" src="https://github.com/user-attachments/assets/e6af7db2-87ac-451e-924f-5354fa85a592" />
+<img width="896" alt="Flight_price_prediction_2" src="https://github.com/user-attachments/assets/92f3dd4e-667c-4bac-b5ea-2b6a1cbfe98e" />
+<img width="487" alt="flight_price_prediction_3" src="https://github.com/user-attachments/assets/5d384e1d-a533-419c-8772-21f204af4652" />
 
 ### 🌐 **REST API Development**  
 - Developed a Flask-based API to serve flight price predictions in real time.  
@@ -30,11 +34,19 @@ This project explores the powerful intersection of **data analytics** and **mach
 - Managed model versions systematically and tracked performance metrics during iterations.  
 
 ### 👥 **Gender Classification Model**  
-- Deployed a classification model to predict user gender based on the `users.csv` dataset.  
+- Deployed a classification model to predict user gender based on the `users.csv` dataset.
+
+<img width="928" alt="Gender Classification app image" src="https://github.com/user-attachments/assets/1600e998-497b-4f95-91ac-e422e2afe95c" />
+<img width="956" alt="streamlit_run_app" src="https://github.com/user-attachments/assets/9692a33a-f79c-4d63-94c6-b3ba2101ff2a" />
+<img width="722" alt="Gender_Classification_model_prediction" src="https://github.com/user-attachments/assets/593d9d65-8c2d-4d4f-a2fb-338008fe5d13" />
 
 ### 🏨 **Hotel Recommendation System**  
 - Built a recommendation model for personalized hotel suggestions using user preferences and historical data.  
-- Deployed an interactive **Streamlit app** for seamless data visualization and exploration.  
+- Deployed an interactive **Streamlit app** for seamless data visualization and exploration.
+  
+<img width="958" alt="Hotel_recommendation_app" src="https://github.com/user-attachments/assets/2dc91fb3-8f78-415e-8309-df0323f00313" />
+
+
 
 ---
 
